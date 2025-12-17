@@ -1,21 +1,47 @@
 "use-strict";
 
-fetch("./data.json").then((res) =>
-  res.json().then((data) => {
-    data.map((item) => {
-      console.log(item);
-      const { daily, weekly, monthly } = item.timeframes;
+const timeFrameButtons = document.querySelectorAll(".time-frame-btn");
 
-      // Create section element
+let activeTimeFrame = "weekly";
 
-      const sectionHtml = `
-        <section class="col-12 col-md-8">
+timeFrameButtons.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    console.log(`${btn.dataset.timeframe} button clicked`);
+
+    // Remove active class from all buttons
+    timeFrameButtons.forEach((button) => {
+      button.classList.remove("active-btn");
+    });
+
+    // Add active class to clicked button
+    btn.classList.add("active-btn");
+
+    // Update active timeframes
+    activeTimeFrame = btn.dataset.timeframe;
+
+    // Clear existing cards
+    document.getElementById("section-fitter").innerHTML = "";
+
+    // Re-render cards based on selected timeframes
+    renderCards();
+  });
+});
+
+const renderCards = () => {
+  fetch("./data.json").then((res) =>
+    res.json().then((data) => {
+      data.map((item) => {
+        const timeFrame = item.timeframes[activeTimeFrame];
+
+        // Create section element
+        const sectionHtml = `
+        <section class="col-12 col-md-8 pt-4">
               <div
                 class="activity-icon card d-flex align-items-end rounded-4 overflow-hidden" style="background-color: ${item.style.color}; "
               >
                 <img style="margin: ${item.style.margin}" src=${item.images.icon} alt="Work Icon" />
               </div>
-              <div class="card time-card p-4 rounded-4">
+              <div class="card time-card p-4 rounded-4 activity-card pe-auto">
                 <div class="d-flex justify-content-between align-items-center">
                   <h2 class="title">${item.title}</h2>
                   <img
@@ -25,16 +51,19 @@ fetch("./data.json").then((res) =>
                   />
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
-                  <h3 class="current-hours">${daily.current}hrs</h3>
-                  <p class="previous-hours mt-2">Last Week - ${daily.previous}hrs</p>
+                  <h3 class="current-hours">${timeFrame.current}hrs</h3>
+                  <p class="previous-hours mt-2">Last Week - ${timeFrame.previous}hrs</p>
                 </div>
               </div>
             </section>
       `;
 
-      document
-        .getElementById("section-fitter")
-        .insertAdjacentHTML("beforeend", sectionHtml);
-    });
-  })
-);
+        document
+          .getElementById("section-fitter")
+          .insertAdjacentHTML("beforeend", sectionHtml);
+      });
+    })
+  );
+};
+
+renderCards();

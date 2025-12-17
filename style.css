@@ -6,6 +6,8 @@
   --color-purple: hsl(235, 45%, 61%);
   --color-navy-200: hsl(236, 100%, 87%);
 
+  --test: hsl(235, 40%, 32%);
+
   --color-purple-1: hsl(246, 80%, 60%);
 }
 
@@ -39,7 +41,13 @@ body {
   background-color: var(--color-navy-900);
   height: 100px;
   margin-top: -30px;
-  z-index: -1;
+  position: relative;
+  z-index: 0;
+}
+
+.profile-card {
+  position: relative;
+  z-index: 1;
 }
 
 .time-frame-btn {
@@ -47,8 +55,15 @@ body {
   border: none;
   cursor: pointer;
   color: var(--color-purple);
-
   margin-top: 25px;
+}
+
+.time-frame-btn:hover {
+  color: white;
+}
+
+.active-btn {
+  color: white;
 }
 
 .time-card {
@@ -75,3 +90,26 @@ body {
 .activity-icon {
   height: 70px;
 }
+
+.activity-card:hover {
+  background-color: var(--test);
+  cursor: pointer;
+}
+
+/* @media (min-width: 768px) {
+  main {
+    display: grid;
+  }
+
+  .profile-card {
+    height: 200px;
+  }
+
+  .time-frame-card {
+    height: 150px;
+  }
+
+  .time-card {
+    height: 150px;
+  }
+} */
