@@ -2,6 +2,7 @@
 
 const timeFrameButtons = document.querySelectorAll(".time-frame-btn");
 
+// Default active time frame
 let activeTimeFrame = "weekly";
 
 timeFrameButtons.forEach((btn) => {
@@ -35,7 +36,7 @@ const renderCards = () => {
 
         // Create section element
         const sectionHtml = `
-        <section class="col-12 col-md-8 pt-4">
+        <section id="activity-card" class="col-12 pt-4 pt-md-0">
               <div
                 class="activity-icon card d-flex align-items-end rounded-4 overflow-hidden" style="background-color: ${item.style.color}; "
               >
@@ -50,9 +51,9 @@ const renderCards = () => {
                     class="ellipsis-icon"
                   />
                 </div>
-                <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-between align-items-center flex-md-column align-items-md-start mt-md-3">
                   <h3 class="current-hours">${timeFrame.current}hrs</h3>
-                  <p class="previous-hours mt-2">Last Week - ${timeFrame.previous}hrs</p>
+                  <p class="previous-hours mt-2 mt-md-0">Last Week - ${timeFrame.previous}hrs</p>
                 </div>
               </div>
             </section>
