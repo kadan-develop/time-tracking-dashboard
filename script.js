@@ -6,7 +6,7 @@ const timeFrameButtons = document.querySelectorAll(".time-frame-btn");
 let activeTimeFrame = "weekly";
 
 timeFrameButtons.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
+  btn.addEventListener("click", () => {
     console.log(`${btn.dataset.timeframe} button clicked`);
 
     // Remove active class from all buttons
@@ -42,7 +42,7 @@ const renderCards = () => {
               >
                 <img style="margin: ${item.style.margin}" src=${item.images.icon} alt="Work Icon" />
               </div>
-              <div class="card time-card p-4 rounded-4 activity-card pe-auto">
+              <div class="card time-card p-4 rounded-4 pe-auto">
                 <div class="d-flex justify-content-between align-items-center">
                   <h2 class="title">${item.title}</h2>
                   <img

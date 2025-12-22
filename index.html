@@ -25,7 +25,7 @@
     >
       <div id="cards" class="row">
         <!-- PROFILE -->
-        <section id="profile-section">
+        <section class="profile-section">
           <div
             class="card profile-card d-flex flex-row flex-md-column align-items-center justify-content-md-evenly align-items-md-start rounded-4 justify-content-center"
           >
@@ -43,11 +43,21 @@
           <div
             class="card time-frame-card p-4 d-flex flex-row flex-md-column align-items-md-start justify-content-md-evenly justify-content-between rounded-4"
           >
-            <button class="time-frame-btn" data-timeframe="daily">Daily</button>
-            <button class="time-frame-btn active-btn" data-timeframe="weekly">
+            <button class="time-frame-btn" type="button" data-timeframe="daily">
+              Daily
+            </button>
+            <button
+              class="time-frame-btn active-btn"
+              type="button"
+              data-timeframe="weekly"
+            >
               Weekly
             </button>
-            <button class="time-frame-btn" data-timeframe="monthly">
+            <button
+              class="time-frame-btn"
+              type="button"
+              data-timeframe="monthly"
+            >
               Monthly
             </button>
           </div>

@@ -27,6 +27,8 @@ body {
 .profile-card {
   background-color: var(--color-purple-1);
   height: 130px;
+  position: relative;
+  z-index: 1;
 }
 .profile-picture {
   width: 70px;
@@ -44,11 +46,6 @@ body {
   margin-top: -30px;
   position: relative;
   z-index: 0;
-}
-
-.profile-card {
-  position: relative;
-  z-index: 1;
 }
 
 .time-frame-btn {
@@ -74,6 +71,11 @@ body {
   height: 120px;
 }
 
+.time-card:hover {
+  background-color: var(--test);
+  cursor: pointer;
+}
+
 .title {
   font-size: 1.125rem;
 }
@@ -92,11 +94,6 @@ body {
   height: 70px;
 }
 
-.activity-card:hover {
-  background-color: var(--test);
-  cursor: pointer;
-}
-
 .attribution {
   font-size: 14px;
   color: var(--color-navy-200);
@@ -109,7 +106,7 @@ body {
     max-width: 1440px;
     min-height: 800px;
   }
-  #profile-section {
+  .profile-section {
     width: 280px;
     height: 350px;
     margin-top: 20px;
