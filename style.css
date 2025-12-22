@@ -139,28 +139,28 @@ body {
     }
   }
 
-  #cards {
+  .cards {
     max-width: 1200px;
     display: grid;
     grid-template-columns: 1fr 4fr;
     /* gap: 1.5rem; */
   }
 
-  #section-fitter {
+  .section-fitter {
     display: grid;
     grid-template-columns: repeat(3, 0fr);
     gap: 1.5rem;
   }
 
-  #activity-card {
+  .activity-card {
     width: 260px;
     height: 195px;
     margin-top: 20px;
   }
 
-  #activity-card:nth-child(4),
-  #activity-card:nth-child(5),
-  #activity-card:nth-child(6) {
+  .activity-card:nth-child(4),
+  .activity-card:nth-child(5),
+  .activity-card:nth-child(6) {
     margin-top: 50px;
   }
 
