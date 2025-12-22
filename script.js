@@ -36,7 +36,7 @@ const renderCards = () => {
 
         // Create section element
         const sectionHtml = `
-        <section  class="col-12 pt-4 pt-md-0 activity-card">
+        <section class="col-12 pt-4 pt-md-0 activity-card">
               <div
                 class="activity-icon card d-flex align-items-end rounded-4 overflow-hidden" style="background-color: ${item.style.color}; "
               >
@@ -60,7 +60,7 @@ const renderCards = () => {
       `;
 
         document
-          .getElementById("section-fitter")
+          .querySelector(".section-fitter")
           .insertAdjacentHTML("beforeend", sectionHtml);
       });
     })
